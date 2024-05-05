@@ -77,9 +77,32 @@ function minMax(arr) {
 // Ejemplo de uso:
 console.log(minMax([1, 2, 3, 4, 5])); // Output: [1, 5]
 
-//Escriba una función que tome una matriz de 10 enteros (entre 0 y 9) y devuelva una cadena en forma de un número de teléfono.
+//Pregunta 7:Escriba una función que tome una matriz de 10 enteros (entre 0 y 9) y devuelva una cadena en forma de un número de teléfono.
 
 function formatPhoneNumber(numbers) {
     const telefono = `(${numbers.slice(0, 3).join('')}) ${numbers.slice(3, 6).join('')}-${numbers.slice(6).join('')}`;
 return telefono;
 }
+
+// Ejemplo de uso
+console.log(formatPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // Output: "(123) 456-7890"
+
+// Pregunta 8: Cree una función que tome una matriz de matrices con números. Devuelve una nueva matriz (única) con el mayor número de cada uno.
+
+const findLargestNums = (matrices) => {
+    // Crear una matriz para almacenar los números máximos de cada matriz
+    const maximos = [];
+
+     // Iterar sobre cada matriz dentro de la matriz de matrices
+  for (let matriz of matrices) {
+    // Encontrar el número máximo de la matriz actual
+    const maximo = Math.max(...matriz);
+    // Agregar el número máximo a la matriz de números máximos
+    maximos.push(maximo);
+  }
+  
+  return maximos;
+};
+
+// Ejemplo de uso
+console.log(findLargestNums([[4, 2, 7, 1], [20, 70, 40, 90], [1, 2, 0]])); // Output: [7, 90, 2]
