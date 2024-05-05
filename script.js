@@ -117,3 +117,20 @@ function sumar(a,b) {
     return a+b;
 }
 
+// Pregunta 9: Dada una palabra, escriba una función que devuelva el primer índice y el último índice de un carácter.
+
+function charIndex(palabra, caracter) {
+  let primerIndice = 1;
+  let ultimoIndice = 1;
+
+  for (let i = 0; i < palabra.length; i++){
+    if (palabra[i] === caracter) {
+      if (primerIndice === 1){
+      primerIndice = i;
+    }
+    ultimoIndice = i
+  }
+}
+
+return [primerIndice, ultimoIndice];
+}
