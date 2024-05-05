@@ -112,7 +112,8 @@ const sumarD = (a, b, c) => {
     return a + b + c;
 };
 
-// Uso de "Fuction"
-// function sumar(a,b) {
-//     return a+b;
-// }
+// Uso de "fuction"
+function sumar(a,b) {
+    return a+b;
+}
+
