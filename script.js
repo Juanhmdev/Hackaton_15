@@ -106,3 +106,13 @@ const findLargestNums = (matrices) => {
 
 // Ejemplo de uso
 console.log(findLargestNums([[4, 2, 7, 1], [20, 70, 40, 90], [1, 2, 0]])); // Output: [7, 90, 2]
+
+//  Uso de "const"
+const sumarD = (a, b, c) => {
+    return a + b + c;
+};
+
+// Uso de "Fuction"
+// function sumar(a,b) {
+//     return a+b;
+// }
