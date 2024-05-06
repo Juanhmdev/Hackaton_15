@@ -120,12 +120,12 @@ function sumar(a,b) {
 // Pregunta 9: Dada una palabra, escriba una función que devuelva el primer índice y el último índice de un carácter.
 
 function charIndex(palabra, caracter) {
-  let primerIndice = 1;
-  let ultimoIndice = 1;
+  let primerIndice = -1;
+  let ultimoIndice = -1;
 
-  for (let i = 0; i < palabra.length; i++){
+  for (let i = 0; i < palabra.length; i++){ 
     if (palabra[i] === caracter) {
-      if (primerIndice === 1){
+      if (primerIndice === -1){
       primerIndice = i;
     }
     ultimoIndice = i
@@ -134,3 +134,231 @@ function charIndex(palabra, caracter) {
 
 return [primerIndice, ultimoIndice];
 }
+
+console.log(charIndex("hello", "l")); // Output: [2, 3]
+
+// Operador de incremento ( "i++"" ): es el operador de incremento estándar en JavaScript, puedes utilizar otras formas de incrementar el contador en un bucle for. 
+// Algunas de estas formas son:
+// Operador de incremento (++i): Es similar a i++, pero incrementa i antes de que se evalúe la expresión en la que se utiliza. Por lo tanto, ++i incrementará i antes de que se ejecute cualquier otra acción en la iteración actual del bucle.
+// Operador de asignación de suma (+=): Puedes usar el operador += para incrementar el valor de i en una cantidad específica en lugar de solo 1. Esto puede ser útil si deseas incrementar el contador en un número diferente a 1 en cada iteración.
+// Asignación de valor (i = i + 1 o i = i + n): Si bien es menos común, también puedes incrementar i utilizando una asignación de valor normal. Sin embargo, esto es menos conciso y generalmente se prefiere el uso de ++ o += por su claridad y brevedad.
+
+
+//Pregunta 10: Escriba una función que convierta un objeto en una matriz, donde cada elemento representa un par clave-valor.
+
+function toArray(objeto) {
+  // Convertir el objeto en una matriz de pares clave-valor
+  return Object.entries(objeto);
+}
+
+// Ejemplo de uso
+console.log(toArray({ a: 1, b: 2 })); // Output: [["a", 1], ["b", 2]]
+// En este código, Object.entries(objeto) convierte el objeto en una matriz de pares clave-valor, que luego se devuelve desde la función toArray().
+
+// Pregunta 11: Cree la función que toma una matriz con objetos y devuelve la suma de los presupuestos de las personas.
+
+function getBudgets(personas) {
+  // Inicializar la suma en 0
+  let suma = 0;
+  
+  // Recorrer la matriz de objetos
+  for (let persona of personas) {
+      // Sumar el presupuesto de cada persona
+      suma += persona.budget;
+  }
+  
+  // Devolver la suma total
+  return suma;
+}
+
+// Ejemplo de uso
+console.log(getBudgets([
+{ name: "John", age: 21, budget: 23000 },
+{ name: "Steve",  age: 32, budget: 40000 },
+{ name: "Martin",  age: 16, budget: 2700 }
+])); // Output: 65700
+
+// Pregunta 12: Cree una función que tome una matriz de estudiantes y devuelva una matriz de nombres de estudiantes.
+
+function getStudentNames(estudiantes) {
+  // Crear una matriz vacía para almacenar los nombres
+  let nombres = [];
+  
+  // Recorrer la matriz de estudiantes
+  for (let estudiante of estudiantes) {
+      // Agregar el nombre de cada estudiante a la matriz de nombres
+      nombres.push(estudiante.name);
+  }
+  
+  // Devolver la matriz de nombres
+  return nombres;
+}
+
+// Ejemplo de uso
+console.log(getStudentNames([
+{ name: "Steve" },
+{ name: "Mike" },
+{ name: "John" }
+])); // Output: ["Steve", "Mike", "John"]
+
+// Pregunta 13: Escriba una función que convierta un objeto en una matriz de claves y valores.
+
+function objectToArray(objeto) {
+  // Crear una matriz vacía para almacenar las claves y valores
+  let matriz = [];
+  
+  // Recorrer las propiedades del objeto
+  for (let clave in objeto) {
+      // Verificar si la propiedad pertenece al objeto y no a su prototipo
+      if (objeto.hasOwnProperty(clave)) {
+          // Agregar la clave y el valor como una matriz [clave, valor] a la matriz
+          matriz.push([clave, objeto[clave]]);
+      }
+  }
+  
+  // Devolver la matriz resultante
+  return matriz;
+}
+
+// Ejemplo de uso
+console.log(objectToArray({
+likes: 2,
+dislikes: 3,
+followers: 10
+})); // Output: [["likes", 2], ["dislikes", 3], ["followers", 10]]
+
+// Usar "hasOwnProperty" es importante, debido a que es un método que nos ayudará a determinar si un objetio tiene una propiedad con un nombre especifico como propiedad directa del objeto, es decir, no heredada de su prototipo.
+
+// Pregunta 14: Cree una función donde, dado el número n, devuelva la suma de todos los números cuadrados  incluyendo n.
+
+function squaresSum(n) {
+  let suma = 0;
+  for (let i = 1; i <= n; i++) {
+    suma += i * i;
+  }
+  return suma;
+}
+
+// Ejemplo de uso
+console.log(squaresSum(3)); // Output: 14
+
+// Pregunta 15: Cree una función para multiplicar todos los valores en una matriz por la cantidad de valores en la matriz dada
+
+function multiplyByLength(arr) {
+  const length = arr.length;
+  const multipliedArray = [];
+
+  for (let i = 0; i < length; i++) {
+    multipliedArray.push(arr[i] * length);
+  }
+
+  return multipliedArray;
+}
+
+// Ejemplo de uso
+console.log(multiplyByLength([2, 3, 1, 0])); // Output: [8, 12, 4, 0]
+
+// Pregunta 16: Cree una función que tome un número como argumento y devuelva una matriz de números contando desde este número a cero.
+
+function countdown(number) {
+  // Creamos una matriz vacía para almacenar los números descendentes
+  let result = [];
+
+  // Usamos un bucle for para iterar desde el número dado hasta cero
+  for (let i = number; i >= 0; i--) {
+      // Agregamos el número actual a la matriz
+      result.push(i);
+  }
+
+  // Retornamos la matriz resultante
+  return result;
+}
+
+// Ejemplo de uso
+console.log(countdown(5)); // Output: [5, 4, 3, 2, 1, 0]
+
+// En esta función:
+
+// "number" es el número inicial desde el cual queremos contar hacia abajo.
+// Creamos una matriz vacía llamada "result" para almacenar los números descendentes.
+// Utilizamos un bucle "for" que comienza en el número dado (number) y se ejecuta mientras i sea mayor o igual a cero. En cada iteración, decrementamos i en uno.
+// En cada iteración del bucle, agregamos el valor actual de i a la matriz result utilizando el método "push()".
+// Finalmente, retornamos la matriz result que contiene los números descendentes.
+
+// Pregunta 17: Cree una función que tome una matriz y devuelva la diferencia entre los números más grandes y más pequeños.
+
+function diffMaxMin(arr) {
+  // Encontrar el número más grande y el más pequeño en la matriz
+  let maxNumber = Math.max(...arr);
+  let minNumber = Math.min(...arr);
+
+  // Calcular la diferencia entre el número más grande y el más pequeño
+  let difference = maxNumber - minNumber;
+
+  // Retornar la diferencia
+  return difference;
+}
+
+// Ejemplo de uso
+console.log(diffMaxMin([10, 4, 1, 4, -10, -50, 32, 21])); // Output: 82
+
+// En esta función:
+
+// Math.max(...arr) devuelve el número más grande en la matriz arr.
+// Math.min(...arr) devuelve el número más pequeño en la matriz arr.
+// Restamos el número más pequeño (minNumber) del número más grande (maxNumber) para obtener la diferencia.
+// Finalmente, retornamos la diferencia calculada.
+
+// Pregunta 18: Cree una función que filtre las cadenas de una matriz y devuelva una nueva matriz que solo contenga enteros.
+
+function filterList (arr) {
+
+  return arr.filter(Element => Number.isInteger(element));
+
+}
+
+// Ejemplo de uso
+console.log(filterList([1, 2, 3, "x", "y", 10])); // Output: [1, 2, 3, 10]
+
+// En esta función:
+
+// arr.filter() crea una nueva matriz con los elementos de arr que pasan la prueba implementada por la función de filtro.
+// Number.isInteger(element) es la función de filtro que devuelve true si element es un número entero, y false de lo contrario.
+// El operador de flecha (=>) se utiliza para definir funciones de flecha en JavaScript. En este caso, se utiliza para definir la función de filtro de una manera más concisa. La función de flecha toma un argumento (element) y devuelve true si es un número entero.
+
+// Pregunta 19: Cree una función que tome dos argumentos (elemento, tiempos). El primer argumento (elemento) es el elemento que necesita repetirse, mientras que el segundo argumento (veces) es la cantidad de veces que se debe repetir el elemento. Devuelve el resultado en una matriz.
+
+function repeat(elemento, veces) {
+  // Creamos una matriz vacía para almacenar las repeticiones del elemento
+  let resultado = [];
+
+  // Iteramos 'veces' veces y agregamos 'elemento' a la matriz en cada iteración
+  for (let i = 0; i < veces; i++) {
+      resultado.push(elemento);
+  }
+
+  // Devolvemos la matriz con las repeticiones del elemento
+  return resultado;
+}
+
+// Ejemplo de uso:
+console.log(repeat(13, 5)); // Output: [13, 13, 13, 13, 13]
+
+// Pregunta 20: Escriba una función, .vreplace () que extienda el prototipo de cadena reemplazando todas las vocales en una cadena con una vocal especificada.
+
+String.prototype.vreplace = function(vowel) {
+  // Usamos una expresión regular para reemplazar todas las vocales
+  // (mayúsculas y minúsculas) con la vocal especificada
+  
+  return this.replace(/[aeiou]/gi, vowel);
+}
+
+// Ejemplo de uso
+console.log("apples and bananas".vreplace("u")); // Salida: "upplus und bununus"
+
+// En este código:
+
+// String.prototype.vreplace = function(vowel) { ... }: Estamos agregando un nuevo método llamado vreplace al prototipo de String. Este método acepta un parámetro vowel, que será la vocal con la que se reemplazarán todas las vocales en la cadena.
+// return this.replace(/[aeiou]/gi, vowel);: Utilizamos el método replace() de JavaScript junto con una expresión regular para buscar todas las vocales (mayúsculas y minúsculas) en la cadena y reemplazarlas con la vocal especificada.
+
+// Pregunta 21: Te dan una cadena de palabras. Debe encontrar la palabra "Nemo" y devolver una cadena como esta: "¡Encontré a Nemo en [el orden de la palabra que encuentra nemo]!".
