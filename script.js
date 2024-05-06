@@ -362,3 +362,65 @@ console.log("apples and bananas".vreplace("u")); // Salida: "upplus und bununus"
 // return this.replace(/[aeiou]/gi, vowel);: Utilizamos el método replace() de JavaScript junto con una expresión regular para buscar todas las vocales (mayúsculas y minúsculas) en la cadena y reemplazarlas con la vocal especificada.
 
 // Pregunta 21: Te dan una cadena de palabras. Debe encontrar la palabra "Nemo" y devolver una cadena como esta: "¡Encontré a Nemo en [el orden de la palabra que encuentra nemo]!".
+
+function findNemo(sentence) {
+  // Dividir la oración en palabras
+  const words = sentence.split(" ");
+  
+  // Iterar sobre las palabras para encontrar "Nemo"
+  for (let i = 0; i < words.length; i++) {
+      if (words[i] === "Nemo") {
+          // Si se encuentra "Nemo", devolver el mensaje con el orden de la palabra
+          return `¡Encontré a Nemo en ${i + 1}!`;
+      }
+  }
+  
+  // Si "Nemo" no se encuentra, devolver un mensaje indicando eso
+  return "¡No se encontró a Nemo!";
+}
+
+// Ejemplo de uso:
+const resultado = findNemo("I am finding Nemo !");
+console.log(resultado); // Output: "¡Encontré a Nemo en 4!"
+
+// Esta función findNemo divide la oración en palabras utilizando el método split y 
+// luego itera sobre estas palabras. Cuando encuentra la palabra "Nemo", devuelve un mensaje 
+// con el índice de esa palabra en la oración. Si no encuentra "Nemo", devuelve un mensaje 
+// indicando que no se encontró. 
+
+// Pregunta 21: Cree una función que capitalice la última letra de cada palabra.
+
+function capLast(word) {
+  // Verificar si la palabra tiene al menos una letra
+  if (word.length === 0) {
+      return word; // Devolver la palabra sin cambios si no tiene letras
+  }
+
+  // Obtener la última letra y el resto de la palabra
+  const lastLetter = word.slice(-1).toUpperCase();
+  const restOfWord = word.slice(0, -1);
+
+  // Devolver la palabra con la última letra capitalizada
+  return restOfWord + lastLetter;
+}
+
+function capLastInSentence(sentence) {
+  // Dividir la oración en palabras
+  const words = sentence.split(" ");
+
+  // Capitalizar la última letra de cada palabra
+  const capitalizedWords = words.map(word => capLast(word));
+
+  // Unir las palabras nuevamente en una oración
+  const result = capitalizedWords.join(" ");
+
+  return result
+}
+
+// Ejemplo de uso:
+const result = capLastInSentence("hello world");
+console.log(result); // Output: "hellO worlD"
+
+// Esta función capLastInSentence divide la oración en palabras, luego 
+// capitaliza la última letra de cada palabra utilizando la función capLast, 
+// y finalmente une las palabras nuevamente en una oración. 
