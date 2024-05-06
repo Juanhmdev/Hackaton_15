@@ -313,7 +313,7 @@ console.log(diffMaxMin([10, 4, 1, 4, -10, -50, 32, 21])); // Output: 82
 
 function filterList (arr) {
 
-  return arr.filter(Element => Number.isInteger(element));
+  return arr.filter(element => Number.isInteger(element));
 
 }
 
